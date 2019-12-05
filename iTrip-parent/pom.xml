@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		 						http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>cn.ekgc.iTrip</groupId>
+	<artifactId>iTrip-parent</artifactId>
+	<version>3.0.0</version>
+	<packaging>pom</packaging>
+
+	<!-- 使用Sprint Boot Parent作为项目的父级依赖关系 [BEGIN] -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.10.RELEASE</version>
+	</parent>
+	<!-- 使用Sprint Boot Parent作为项目的父级依赖关系 [END] -->
+
+	<dependencies>
+		<!-- 无论是Eureka Server还是Eureka Client都需要使用到Spring Boot Web [BEGIN] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- 无论是Eureka Server还是Eureka Client都需要使用到Spring Boot Web [END] -->
+
+		<!-- 为了实现能够进行远程调用方法，那么可以使用OpenFeign来实现 [BEGIN] -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<!-- 为了实现能够进行远程调用方法，那么可以使用OpenFeign来实现 [END] -->
+
+		<!-- 对于Spring Boot的热部署插件，可以很好的进行使用 [BEGIN] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<!-- 对于Spring Boot的热部署插件，可以很好的进行使用 [END] -->
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Greenwich.SR4</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- 配置Spring Boot项目的打包插件 [BEGIN] -->
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- 配置Spring Boot项目的打包插件 [END] -->
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
