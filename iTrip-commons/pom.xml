@@ -23,6 +23,13 @@
   	</properties>
 
   	<dependencies>
+		<!-- 配置Eureka client的依赖关系 [BEGIN] -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!-- 配置Eureka client的依赖关系 [END] -->
+
 		<dependency>
 		  	<groupId>junit</groupId>
 		  	<artifactId>junit</artifactId>

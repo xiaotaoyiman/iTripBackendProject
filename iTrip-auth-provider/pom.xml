@@ -5,10 +5,16 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 		 						http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>en.ekgc.iTrip</groupId>
 	<artifactId>iTrip-auth-provider</artifactId>
-	<version>3.0.0</version>
+	<packaging>jar</packaging>
+
+	<!-- 配置iTrip-parent作为父级依赖关系 [BEGIN] -->
+	<parent>
+		<artifactId>iTrip-parent</artifactId>
+		<groupId>cn.ekgc.iTrip</groupId>
+		<version>3.0.0</version>
+	</parent>
+	<!-- 配置iTrip-parent作为父级依赖关系 [END] -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,10 +23,40 @@
 	</properties>
 
 	<dependencies>
+		<!-- 配置iTrip-commons的依赖关系 [BEGIN] -->
+		<dependency>
+			<groupId>cn.ekgc.iTrip</groupId>
+			<artifactId>iTrip-commons</artifactId>
+			<version>${parent.version}</version>
+		</dependency>
+		<!-- 配置iTrip-commons的依赖关系 [END] -->
+
+		<!-- 配置mysql数据库连接驱动的依赖关系 [BEGIN] -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- 配置mysql数据库连接驱动的依赖关系 [END] -->
+
+		<!-- 配置Mybatis以及Mybatis和Spring Boot结合的依赖关系 [BEGIN] -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+		<!-- 配置Mybatis以及Mybatis和Spring Boot结合的依赖关系 [END] -->
+
+		<!-- 配置druid和Spring Boot结合的依赖关系 [BEGIN] -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.21</version>
+		</dependency>
+		<!-- 配置druid和Spring Boot结合的依赖关系 [END] -->
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
